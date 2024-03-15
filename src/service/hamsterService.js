@@ -59,13 +59,35 @@ const getHamsterById = async (id) => {
   };
 
 const getHamsterPair = async () => {
-  try {
+    try {
     const collection = fetchCollection(HAMSTERS_COLLECTION_NAME);
     const hamsters = await collection.aggregate([{ $sample: { size: 2 } }]).toArray();
-    return hamsters;
-  } catch (err) {
-    throw new Error(err.message);
-  }
+        return hamsters;
+    } catch (err) {
+        throw new Error(err.message);
+    }
 };
 
-export default { getAllHamsters, createHamster, getHamsterById, deleteHamsterById, getHamsterPair };
+const updateHamsterPair = async (wonId, lostId) => {
+    try {
+        const collection = fetchCollection(HAMSTERS_COLLECTION_NAME);
+        const wonHamster = await collection.findOne({ id: Number(wonId) });
+        const lostHamster = await collection.findOne({ id: Number(lostId) });
+
+        if (!wonHamster || !lostHamster) {
+            throw new Error('Hamster not found');
+        }
+
+        wonHamster.votes[0].won += 1;
+        lostHamster.votes[0].lost += 1;
+
+        await collection.updateOne({ id: Number(wonId) }, { $set: wonHamster });
+        await collection.updateOne({ id: Number(lostId) }, { $set: lostHamster });
+
+        return { message: 'Hamster pair updated' };
+    } catch (err) {
+        throw new Error(err.message);
+    }
+};
+
+export default { getAllHamsters, createHamster, getHamsterById, deleteHamsterById, getHamsterPair, updateHamsterPair };

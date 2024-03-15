@@ -54,4 +54,16 @@ const getHamsterPair = async (req, res) => {
   }
 };
 
-export default { getAllHamsters, createHamster, getHamster, deleteHamster, getHamsterPair };
+// PATCH /hamsters/pair/:wonId/:lostId
+const updateHamsterPair = async (req, res) => {
+    const wonId = req.params.wonId;
+    const lostId = req.params.lostId;
+    try {
+        const result = await hamsterService.updateHamsterPair(wonId, lostId);
+        res.json(result);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+};
+
+export default { getAllHamsters, createHamster, getHamster, deleteHamster, getHamsterPair, updateHamsterPair };

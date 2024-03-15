@@ -9,6 +9,7 @@ router
   .get('/', hamsterController.getAllHamsters)
   .post('/', hamsterController.createHamster)
   .get('/pair', hamsterController.getHamsterPair)
+  .patch('/pair/:wonId/:lostId', hamsterController.updateHamsterPair)
   .get('/:id', hamsterController.getHamster)
   .delete('/:id', hamsterController.deleteHamster);
 
