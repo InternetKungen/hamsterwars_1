@@ -31,31 +31,6 @@ const createHamster = async (hamsterData) => {
   }
 };
 
-// const getHamsterById = async (id) => {
-//   try {
-//     const collection = fetchCollection(HAMSTERS_COLLECTION_NAME);
-//     const hamster = await collection.findOne({ id: id });
-//     if (!hamster) {
-//       throw new Error('Hamster not found');
-//     }
-//     return hamster;
-//   } catch (err) {
-//     throw new Error(err.message);
-//   }
-// };
-
-// const deleteHamsterById = async (id) => {
-//   try {
-//     const collection = fetchCollection(HAMSTERS_COLLECTION_NAME);
-//     const result = await collection.deleteOne({ id: id });
-//     if (result.deletedCount === 0) {
-//       throw new Error('Hamster not found');
-//     }
-//     return { message: 'Hamster deleted' };
-//   } catch (err) {
-//     throw new Error(err.message);
-//   }
-// };
 
 const getHamsterById = async (id) => {
     try {

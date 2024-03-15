@@ -8,8 +8,8 @@ const router = express.Router();
 router
   .get('/', hamsterController.getAllHamsters)
   .post('/', hamsterController.createHamster)
+  .get('/pair', hamsterController.getHamsterPair)
   .get('/:id', hamsterController.getHamster)
-  .delete('/:id', hamsterController.deleteHamster)
-  .get('/pair', hamsterController.getHamsterPair);
+  .delete('/:id', hamsterController.deleteHamster);
 
 export default router;
