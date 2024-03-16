@@ -54,6 +54,8 @@ fetch('http://localhost:3000/hamsters/pair')
             hamsterCard.classList.add('hamster-card');
             hamsterCard.innerHTML = `
                 <h2>${hamster.name}</h2>
+                <h3>Antal vinster: ${hamster.votes[0].won}</h3>
+                <h3>Antal förluster: ${hamster.votes[0].lost}</h3>
                 <img src="${hamster.ref}" alt="${hamster.name}" width="200">
             `;
             hamsterCard.dataset.id = hamster.id; // Lägg till data-id attribut
