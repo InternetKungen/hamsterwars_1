@@ -1,12 +1,14 @@
 // server.js
 
 import express from 'express';
+import cors from 'cors';
 import { fetchCollection } from './src/mongodb/mongoDbClient.js'; // Importera fetchCollection-funktionen
 import hamsterRouter from './src/router/hamsterRouter.js'; // Importera hamsterRouter
 
 const app = express();
 const port = process.env.PORT || 3000;
 
+app.use(cors());
 app.use(express.json());
 
 // Gör databasen tillgänglig för alla router-filer
