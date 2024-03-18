@@ -10,6 +10,20 @@
   <body>
     <h1>Hamster Wars</h1>
     <div id="hamster-container"></div>
+    <form id="add-hamster-form">
+      <label for="hamster-id">ID:</label>
+      <input type="number" id="hamster-id" name="id" required><br><br>
+      
+      <label for="hamster-name">Namn:</label>
+      <input type="text" id="hamster-name" name="name" required><br><br>
+      
+      <label for="hamster-image">Länk till bild:</label>
+      <input type="url" id="hamster-image" name="ref" required><br><br>
+      
+      <input type="submit" value="Lägg till">
+  </form>
+    <!-- <button id="add-hamster">Lägg till hamster</button> -->
+    <div id="hamster-list"></div>
 </body>
 </html>
 </html>

@@ -1,24 +1,127 @@
 /* styles.css */
+:root {
+  --background-color: #c6d8ff;
+  --fill-color: #71a9f7;
+  --border-color: #72195a;
+  --shadow-color: #6b5ca5;
+  --other-color: #4c1036;
+}
 
 body {
     font-family: Arial, sans-serif;
+    width: 100vw;
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
   }
   
-  #hamsters-container {
+  #hamster-container {
     display: flex;
-    flex-wrap: wrap;
+    justify-content: space-around;
+    flex-direction: row;
+    width: fit-content;
+    border: 2px solid var(--border-color);
+    margin: 10px;
+    border-radius: 10px;
+    background-color: var(--fill-color);
   }
   
   .hamster-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     width: 300px;
     margin: 10px;
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 0 10px var(--shadow-color);
+    border-radius: 8px;
+    background-color: var(--background-color);
   }
-  
+
+  .hamster-card:hover {
+    box-shadow: 0 0 20px var(--other-color);
+    background-color: #d5e1fc ;
+    transition: box-shadow 0.3s, background-color 1.5s;
+  }
+
+  .score-container {
+    font-size: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .score-container h3{
+  padding: 10px ;
+  font-weight: 300;
+  }
+
   .hamster-card img {
     max-width: 100%;
     height: auto;
+    border-radius: 8px;
+  }
+  
+  #add-hamster-form {
+    width: 400px;
+    height: 400px;
+    border: 1px solid var(--border-color);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  #hamster-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 970px;
+    background-color: var(--fill-color);
+    border-radius: 10px;    
+  }
+
+  .hamster-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 200px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 0 10px var(--shadow-color);
+    border-radius: 8px;
+    background-color: var(--background-color);
+  }
+  .hamster-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .delete-button {
+    display: flex;
+    align-self: flex-end;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    height: 60px;
+    width: 80px;
+    border-radius: 8px;
+    font-size: 37px;
+    background-color: #71a9f7;
+    border: 0px;
+    padding-bottom: 5px;
+  }
+
+  .delete-button:hover {
+    background-color: red;
   }
   
