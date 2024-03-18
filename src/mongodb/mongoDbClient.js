@@ -1,7 +1,7 @@
 // mongoDbClient.js
 
 import { MongoClient } from 'mongodb';
-import { dbDetails } from './config.js'
+import { dbDetails } from '../config/config.js'
 
 let db;
 
