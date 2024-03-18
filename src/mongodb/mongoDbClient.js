@@ -1,13 +1,9 @@
 // mongoDbClient.js
 
 import { MongoClient } from 'mongodb';
+import { dbDetails } from './config.js'
 
 let db;
-
-const dbDetails = {
-  username: "kandersson",
-  password: "lbDJq9s7Y9NM5OIP"
-}
 
 const url = (username, password) => {
   return `mongodb+srv://${username}:${password}@test-cluster0.hxnsnlh.mongodb.net/?retryWrites=true&w=majority&appName=test-Cluster0`;

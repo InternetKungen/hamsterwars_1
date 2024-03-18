@@ -5,6 +5,7 @@
   --border-color: #72195a;
   --shadow-color: #6b5ca5;
   --other-color: #4c1036;
+  --content-width: 970px;
 }
 
 body {
@@ -22,10 +23,30 @@ body {
     justify-content: space-around;
     flex-direction: row;
     width: fit-content;
-    border: 2px solid var(--border-color);
+    border: 5px solid var(--border-color);
+    /* box-shadow: -30px 0 9000px var(--border-color); */
     margin: 10px;
     border-radius: 10px;
     background-color: var(--fill-color);
+    animation: box-shadow-color-change 8s infinite; /* Lade till infinite för att upprepa animationen */
+  }
+  
+  @keyframes box-shadow-color-change {
+    0%, 100% {
+      box-shadow: 0px 0 9000px #4c1036;
+    } 
+    20% {
+      box-shadow: 0px 0 1000px #6b5ca5;
+    } 
+    40% {
+      box-shadow: 0px 0 9000px #72195a;
+    } 
+    60% {
+      box-shadow: 0px 0 400px #6b5ca5;
+    } 
+    80% {
+      box-shadow: 0px 0 9000px #72195a;
+    }
   }
   
   .hamster-card {
@@ -64,25 +85,52 @@ body {
     max-width: 100%;
     height: auto;
     border-radius: 8px;
+    border: 1px solid var(--fill-color);
+    box-shadow: 0 0 3px var(--fill-color);
   }
   
   #add-hamster-form {
-    width: 400px;
+    width: var(--content-width);
     height: 400px;
-    border: 1px solid var(--border-color);
+    /* border: 1px solid var(--border-color); */
     display: flex;
     justify-content: center;
     flex-direction: column;
     box-sizing: border-box;
     padding: 20px;
-    border-radius: 10px;
+  }
+
+  #add-hamster-form input {
+    height: 22px;
+    border-radius: 8px;
+    background-image: linear-gradient(to right, #ffffff, var(--background-color)); /* Gradient för bakgrundsfärg */
+  border: 5px solid transparent; /* Transparent gräns */
+  border-image: linear-gradient(to right, var(--other-color), var(--background-color)) 1; /* Gradient för gräns */
+  border-image-slice: 1
+  }
+
+  #add-hamster-form button {
+    text-transform: uppercase;
+    align-self: center;
+    width: 200px;
+    height: 50px;
+    border-radius: 6px;
+    font-family: monospace;
+    font-size: 17px;
+    border: 3px solid var(--other-color);
+    background-color: var(--background-color);
+  }
+
+  #add-hamster-form button:active {
+    background-color: var(--border-color);
+    color: white;
   }
 
   #hamster-list {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    max-width: 970px;
+    max-width: var(--content-width);
     background-color: var(--fill-color);
     border-radius: 10px;    
   }
